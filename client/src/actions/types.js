@@ -1,0 +1,8 @@
+export const TOGGLE_CART_HIDDEN = "TOGGLE_CART_HIDDEN";
+export const ADD_ITEM = "ADD_ITEM";
+export const CLEAR_ITEM = "CLEAR_ITEM";
+export const REMOVE_ITEM = "REMOVE_ITEM";
+export const SET_CURRENT_USER = "SET_CURRENT_USER";
+export const UPDATE_COLLECTIONS = "UPDATE_COLLECTIONS";
+export const ADD_ORDER = "ADD_ORDER";
+export const REMOVE_ORDER = "REMOVE_ORDER";

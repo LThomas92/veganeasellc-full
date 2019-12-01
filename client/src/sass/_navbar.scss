@@ -1,0 +1,61 @@
+.navbar-header {
+  padding: 1rem;
+  width: 100%;
+  height: 6rem;
+  display: flex;
+  margin-bottom: 4rem;
+  justify-content: space-between;
+  font-family: "Open Sans Condensed", sans-serif;
+
+  @media screen and (max-width: 800px) {
+    height: 4rem;
+    padding: 1rem 1.5rem;
+    display: block;
+    margin-bottom: 30rem;
+    text-align: center;
+  }
+}
+
+.logo {
+  width: 100%;
+  height: 8rem;
+  margin-left: 1rem;
+  @media screen and (max-width: 800px) {
+    width: 90%;
+    margin-left: 2.2rem;
+  }
+}
+
+.nav-items {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  @media screen and (max-width: 800px) {
+    display: inline-block;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+.nav-items li {
+  list-style: none;
+  margin: 1rem;
+  font-size: 1rem;
+  color: $color-black;
+  text-transform: uppercase;
+}
+
+.nav-items a {
+  padding: 0.3em 0;
+  color: $color-black;
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  margin: 0;
+  text-decoration: none;
+  &:hover {
+    color: $color-primary;
+  }
+}

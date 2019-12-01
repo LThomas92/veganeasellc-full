@@ -1,0 +1,45 @@
+#mealplan-form {
+  text-align: center;
+  margin: 1.5rem auto;
+}
+.textarea-container {
+  display: block;
+  margin: 1rem 0rem;
+}
+
+textarea {
+  height: auto;
+  width: 50%;
+  border: 1px solid $color-black;
+  font-size: 1.2rem;
+  @media screen and (max-width: 800px) {
+    border: 0.5px solid $color-black;
+    width: 80%;
+  }
+}
+
+.calender {
+  margin: 0 auto;
+}
+
+select {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -webkit-padding-end: 20px;
+  -moz-padding-end: 20px;
+  -webkit-padding-start: 2px;
+  -moz-padding-start: 2px;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.7);
+  color: #555;
+  font-size: inherit;
+  margin: 0;
+  overflow: hidden;
+  padding: 0.5rem 1rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}

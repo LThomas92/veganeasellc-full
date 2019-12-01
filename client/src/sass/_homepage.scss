@@ -1,0 +1,147 @@
+.home-container {
+  width: 100%;
+  height: auto;
+  padding: 0 1rem;
+  text-align: center;
+  @media screen and (max-width: 800px) {
+    padding: 0;
+  }
+}
+
+.home-page-header {
+  height: 65vh;
+  background-image: url(../img/home-page-1.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  z-index: 1;
+
+  @media screen and (max-width: 800px) {
+    margin-bottom: 4rem;
+  }
+
+  &__box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  &__title {
+    font-size: 4.5rem;
+    color: $color-white;
+    text-transform: uppercase;
+    text-shadow: 2px 2px $color-black;
+
+    @media screen and (max-width: 800px) {
+      font-size: 3rem;
+    }
+  }
+  &__text {
+    font-size: 3rem;
+    color: $color-secondary;
+    font-weight: 600;
+    text-shadow: 2px 2px $color-black;
+  }
+}
+
+// HOW IT WORKS SECTION
+
+.how-it-works-container {
+  padding: 0 10rem;
+  width: 100%;
+  height: auto;
+  @media screen and (max-width: 800px) {
+    padding: 0;
+  }
+}
+
+.how-it-works-title {
+  font-size: 2.5rem;
+  text-shadow: 1px 1px #999;
+  padding: 0;
+}
+
+.how-it-works-bottom-text {
+  margin-top: 7rem;
+}
+
+.meal-options-card {
+  text-align: left;
+  height: 100%;
+  img {
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  }
+  &__title {
+    color: #323232;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    padding: 0;
+    margin: 0;
+  }
+  &__text {
+    color: #999;
+  }
+}
+
+.meal-title {
+  color: $color-primary;
+  text-shadow: 1px 1px $color-black;
+  font-size: 2rem;
+  &--2 {
+    margin-top: 8rem;
+  }
+}
+
+.meal-small-text {
+  font-size: 0.9rem;
+  color: #999;
+  font-weight: bold;
+}
+
+.meal-section-line {
+  width: 70%;
+  background-color: #999;
+  margin: 1.5rem auto;
+}
+
+// REVIEWS SECTION
+.reviews-section-title {
+  color: $color-black;
+  text-transform: uppercase;
+}
+
+.review-card {
+  background-color: $color-light-grey;
+  color: #323232;
+  box-shadow: 0 0.5rem 1rem rgba($color-black, 0.4);
+  padding: 0 1rem;
+  height: 100%;
+  &__title {
+    color: #323232;
+    text-transform: uppercase;
+  }
+  &__text {
+    color: #323232;
+  }
+  &__name {
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+}
+
+.star-icon-list {
+  list-style-type: none;
+  margin-right: 2rem;
+  li {
+    display: inline;
+  }
+}
+
+.star-icon {
+  width: 2rem;
+  height: 3rem;
+  padding: 0.2rem;
+}

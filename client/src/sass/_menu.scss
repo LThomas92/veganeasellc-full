@@ -1,0 +1,65 @@
+.menu-page-container {
+  width: 100%;
+  text-align: center;
+}
+
+.menu-title {
+  font-size: 2rem;
+  text-shadow: 1px 1px $color-black;
+  text-transform: uppercase;
+  color: $color-primary;
+  @media screen and (max-width: 800px) {
+    font-size: 0.7rem;
+  }
+}
+
+.menu-section {
+  padding: 0 20rem;
+  text-align: left;
+  @media screen and (max-width: 800px) {
+    padding: 1rem;
+  }
+  &__item-title {
+    font-size: 1.3rem;
+    color: $color-primary;
+    text-transform: uppercase;
+  }
+  &__item-desc {
+    font-size: 1.1rem;
+    color: darkgrey;
+    font-weight: 700;
+  }
+}
+
+.underline {
+  width: 50%;
+  border-color: $color-secondary;
+  &--sm-line {
+    width: 10%;
+    border-color: $color-black;
+  }
+}
+
+.leaves {
+  width: 8rem;
+  height: 2rem;
+}
+
+//SEARCH BAR
+.search-bar {
+  padding: 1rem;
+  height: auto;
+  font-family: "Oswald, sans-serif";
+  text-align: center;
+  &__input {
+    padding: 1rem;
+    width: 60%;
+    font-size: 1.2rem;
+    background-color: #eee;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    @media screen and (max-width: 800px) {
+      width: 80%;
+    }
+  }
+}

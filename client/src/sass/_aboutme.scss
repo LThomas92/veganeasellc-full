@@ -1,0 +1,54 @@
+.aboutme-container {
+  width: 100%;
+  height: auto;
+  display: block;
+  text-align: center;
+}
+
+.aboutme-img {
+  height: auto;
+  &__image {
+    width: 50%;
+    @media screen and (max-width: 800px) {
+      width: 90%;
+    }
+  }
+}
+
+.aboutme-text {
+  padding: 0.5rem 4rem;
+  @media screen and (max-width: 800px) {
+    padding: 1.5rem;
+    margin: 0;
+  }
+  p {
+    color: $color-black;
+    @media screen and (max-width: 800px) {
+      font-size: 1.3rem;
+    }
+  }
+  &__title {
+    margin: 0;
+    font-size: 3rem;
+    padding: 1.5rem;
+    @media screen and (max-width: 800px) {
+      padding: 0;
+    }
+  }
+}
+
+.services-container {
+  padding: 0 2rem;
+  @media screen and (max-width: 800px) {
+    font-size: 1.5rem;
+  }
+  @media screen and (max-width: 800px) {
+    padding: 0 1rem;
+  }
+}
+
+.services {
+  h3 {
+    text-transform: uppercase;
+  }
+}
