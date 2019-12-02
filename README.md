@@ -14,6 +14,11 @@ This application also uses the STRIPEAPI to process payments.
 
 Orders are sent via nodemailer as well.
 
+### TO START THIS APPLICATION AFTER YOU CLONE:
+1. Clone the applicaiton via HTTPS or SSH
+2. Open the Project in your code editor
+3. Open your terminal and enter the following command "npm run dev" which will spin up both the client and backend server.
+
 ### To test this application out use the following VISA card credentials:
 Card Number: 4242 4242 4242 4242
 Exp: 01/20 
