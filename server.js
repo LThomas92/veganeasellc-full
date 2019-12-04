@@ -29,8 +29,8 @@ const creds = require("./config");
 var transport = {
   host: "smtp.gmail.com",
   auth: {
-    user: creds.USER,
-    pass: creds.PASS
+    user: creds.USER || process.env.USER,
+    pass: creds.PASS || process.env.PASS
   }
 };
 
