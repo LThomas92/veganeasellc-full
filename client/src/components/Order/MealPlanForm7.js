@@ -11,11 +11,13 @@ class MealPlanForm7 extends React.Component {
     lunch: [],
     snacks: [],
     days: [],
+    delivery: [],
     text: "",
     weekdayOption: "",
     breakfastOption: "",
     lunchOption: "",
-    snackOption: ""
+    snackOption: "",
+    deliveryOption: ""
   };
 
   componentDidMount() {
@@ -52,7 +54,8 @@ class MealPlanForm7 extends React.Component {
         { weekDay: "Friday" },
         { weekDay: "Saturday" },
         { weekDay: "Sunday" }
-      ]
+      ],
+      delivery: [{ deliveryOption: "Delivery" }, { deliveryOption: "Pick Up" }]
     });
   }
 
@@ -86,12 +89,20 @@ class MealPlanForm7 extends React.Component {
     });
   };
 
+  onChangeDelivery = e => {
+    this.setState({
+      deliveryOption: e.target.value
+    });
+  };
+
+
   onSubmit = e => {
     e.preventDefault();
     const weekdayOption = this.state.weekdayOption;
     const breakfastOption = this.state.breakfastOption;
     const lunchOption = this.state.lunchOption;
     const snackOption = this.state.snackOption;
+    const deliveryOption = this.state.deliveryOption;
     const text = this.state.text;
     const currentUser = this.props.currentUser.displayName;
 
@@ -103,6 +114,7 @@ class MealPlanForm7 extends React.Component {
         breakfastOption: breakfastOption,
         lunchOption: lunchOption,
         snackOption: snackOption,
+        deliveryOption: deliveryOption,
         text: text,
         currentUser: currentUser
       }
@@ -121,6 +133,7 @@ class MealPlanForm7 extends React.Component {
     const { lunch } = this.state;
     const { snacks } = this.state;
     const { days } = this.state;
+    const { delivery } = this.state;
 
     let breakfastList =
       breakfast.length > 0 &&
@@ -161,6 +174,16 @@ class MealPlanForm7 extends React.Component {
           </option>
         );
       }, this);
+    
+      let deliveryList =
+      delivery.length > 0 &&
+      delivery.map((item, i) => {
+        return (
+          <option key={i} value={item.id}>
+            {item.deliveryOption}
+          </option>
+        );
+      }, this);
 
     return (
       <React.Fragment>
@@ -182,11 +205,23 @@ class MealPlanForm7 extends React.Component {
               rows="5"
             ></textarea>
           </div>
+          <div className="delivery-container">
+            <h3>Choose Delivery Method</h3>
+            <select onChange={this.onChangeDelivery}>{deliveryList}</select>
+          </div>
           <button type="submit" className="btn">
             Submit
           </button>
         </form>
+        <p>
+          *Please make sure you are SIGNED IN before order has been submitted
+        </p>
         <p>*Enter Each Order By Day Then Press Submit</p>
+        <p>
+          *For PICKUP Orders. Please contact Vanessa W. via phone or email to
+          coordinate.
+        </p>
+        <p>*Billing Address will be used for Deliveries</p>
       </React.Fragment>
     );
   }

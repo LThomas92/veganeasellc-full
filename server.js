@@ -56,11 +56,14 @@ app.post("/send", (req, res, next) => {
   var snack = req.body.snackOption;
   var text = req.body.text;
   var user = req.body.currentUser;
+  var delivery = req.body.deliveryOption;
 
   var content = `Hi Vanessa,\n
 ${user} has submitted a new meal plan order. Please see details of the order below:
   
-Weekday or Date: ${weekday} \n Breakfast Option: ${breakfast} \n Lunch Option: ${lunch} \n Snack Option: ${snack} \n Extra Details: ${text} `;
+Weekday or Date: ${weekday} \n Breakfast Option: ${breakfast} \n Lunch Option: ${lunch} \n Snack Option: ${snack} \n Extra Details: ${text} 
+
+Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from Stripe Order*`;
 
   var mail = {
     to: "mofamillennial@gmail.com", //Change to email address that you want to receive messages on
