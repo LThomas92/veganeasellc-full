@@ -7,6 +7,8 @@ import MealPlan2 from "../img/mealplan-2.jpg";
 import MealPlan3 from "../img/mealplan-3.jpg";
 import Star from "../img/star.svg";
 
+import LazyLoad from "react-lazyload";
+
 const HomePage = () => {
   document.title = "Home | Veganease";
   return (
@@ -27,14 +29,18 @@ const HomePage = () => {
           <p className="meal-small-text">Step 1: Personalize each meal</p>
           <div className="grid-container">
             <div className="meal-options-card">
-              <img src={Breakfast} alt="Breakfast" />
+              <LazyLoad height={"100%"}>
+                <img src={Breakfast} alt="Breakfast" />
+              </LazyLoad>
               <h3 className="meal-options-card__title">Break Your Fast</h3>
               <p className="meal-options-card__text">
                 choose one item per day.
               </p>
             </div>
             <div className="meal-options-card">
-              <img src={Lunch} alt="Breakfast" />
+              <LazyLoad height={"100%"}>
+                <img src={Lunch} alt="Breakfast" />
+              </LazyLoad>
               <h3 className="meal-options-card__title">Lunch/Dinner</h3>
               <p className="meal-options-card__text">
                 mix and match main and side dishes to make one lunch and one
@@ -42,7 +48,9 @@ const HomePage = () => {
               </p>
             </div>
             <div className="meal-options-card">
-              <img src={Snack} alt="Breakfast" />
+              <LazyLoad height={"100%"}>
+                <img src={Snack} alt="Breakfast" />
+              </LazyLoad>
               <h3 className="meal-options-card__title">Snacks</h3>
               <p className="meal-options-card__text">
                 choose two snacks per day.
@@ -55,21 +63,27 @@ const HomePage = () => {
           <p className="meal-small-text">Step 2: Choose duration of service</p>
           <div className="grid-container">
             <div className="meal-options-card">
-              <img src={MealPlan1} alt="Meal Plan 1" />
+              <LazyLoad height={"100%"}>
+                <img src={MealPlan1} alt="Meal Plan 1" />
+              </LazyLoad>
               <h3 className="meal-options-card__title">5-Day Plan</h3>
               <p className="meal-options-card__text">
                 Includes 15 meals, 5 snacks.
               </p>
             </div>
             <div className="meal-options-card">
-              <img src={MealPlan2} alt="Meal Plan 2" />
+              <LazyLoad height={"100%"}>
+                <img src={MealPlan2} alt="Meal Plan 2" />
+              </LazyLoad>
               <h3 className="meal-options-card__title">7-Day Plan</h3>
               <p className="meal-options-card__text">
                 Includes 21 meals, 7 snacks.
               </p>
             </div>
             <div className="meal-options-card">
-              <img src={MealPlan3} alt="Meal Plan 3" />
+              <LazyLoad height={"100%"}>
+                <img src={MealPlan3} alt="Meal Plan 3" />
+              </LazyLoad>
               <h3 className="meal-options-card__title">30-Day Plan</h3>
               <p className="meal-options-card__text">
                 <b>BEST OFFER!</b> Includes 90 meals, 30 snacks.

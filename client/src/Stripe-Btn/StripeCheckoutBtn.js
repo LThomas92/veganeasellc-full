@@ -5,7 +5,7 @@ import swal from "sweetalert";
 
 const StripeCheckoutBtn = ({ price }) => {
   const priceForStripe = price * 100;
-  const publishableKey = "pk_test_Y5JFMpwzUJlwGsClC6vKoBmR00kICjwIE7";
+  const publishableKey = "pk_test_Mh0rj0QJ4h9k6GZZLRifKtab00jGP8j6FK";
   const onToken = token => {
     swal("Your Payment is Successful");
   };
