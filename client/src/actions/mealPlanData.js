@@ -9,7 +9,7 @@ const mealPlanData = [
         title: "5-Day Meal Plan",
         image: require("../img/5-DayMealPlan.jpg"),
         desc:
-          "Delivery service consisting of 15 delicious vegan meals & 5 snacks (About $6 per meal)",
+          "Delivery service consisting of 10 delicious vegan meals & 5 snacks (About $6 per meal)",
         options: {
           breakfast: [
             "FRUIT BOWL",
@@ -40,7 +40,7 @@ const mealPlanData = [
         title: "7-Day Meal Plan",
         image: require("../img/7-DayMealPlan.jpg"),
         desc:
-          "Freshly prepared meals to enjoy for the entire week! No 'cheat weekends' necessary. Consists of 21 deliciously nutritious meals and 7 snacks. (About $5 per meal) ",
+          "Freshly prepared meals to enjoy for the entire week! No 'cheat weekends' necessary. Consists of 14 deliciously nutritious meals and 7 snacks. (About $5 per meal) ",
         price: 125.0
       },
       {
@@ -48,7 +48,7 @@ const mealPlanData = [
         title: "30-Day Meal Plan",
         image: require("../img/30-DayMealPlan.jpg"),
         desc:
-          "BEST OFFER!! 30 days of flavorful on-the-go meals, totaling 90 meals and 30 snacks. (About $4 per meal!)",
+          "BEST OFFER!! 30 days of flavorful on-the-go meals, totaling 15 meals and 30 snacks. (About $4 per meal!)",
         price: 430.0
       }
     ]

@@ -32,7 +32,7 @@ const Navbar = ({ currentUser, hidden }) => (
         <li>
           {currentUser ? (
             <div className="nav-items" onClick={() => auth.signOut()}>
-              SIGN OUT
+              SIGN OUT <span>{currentUser.displayName}</span>
             </div>
           ) : (
             <Link to="/sign-in">Sign In</Link>

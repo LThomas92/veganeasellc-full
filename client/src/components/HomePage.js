@@ -68,7 +68,7 @@ const HomePage = () => {
               </LazyLoad>
               <h3 className="meal-options-card__title">5-Day Plan</h3>
               <p className="meal-options-card__text">
-                Includes 15 meals, 5 snacks.
+                Includes 10 meals, 5 snacks.
               </p>
             </div>
             <div className="meal-options-card">
@@ -77,7 +77,7 @@ const HomePage = () => {
               </LazyLoad>
               <h3 className="meal-options-card__title">7-Day Plan</h3>
               <p className="meal-options-card__text">
-                Includes 21 meals, 7 snacks.
+                Includes 14 meals, 7 snacks.
               </p>
             </div>
             <div className="meal-options-card">
@@ -86,7 +86,7 @@ const HomePage = () => {
               </LazyLoad>
               <h3 className="meal-options-card__title">30-Day Plan</h3>
               <p className="meal-options-card__text">
-                <b>BEST OFFER!</b> Includes 90 meals, 30 snacks.
+                <b>BEST OFFER!</b> Includes 15 meals, 30 snacks.
               </p>
             </div>
           </div>

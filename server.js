@@ -31,8 +31,8 @@ const creds = require("./config");
 var transport = {
   host: "smtp.gmail.com",
   auth: {
-    user: creds.USER || process.env.USER,
-    pass: creds.PASS || process.env.PASS
+    user: creds.USER,
+    pass: creds.PASS
   }
 };
 
@@ -68,7 +68,7 @@ Weekday or Date: ${weekday} \n Breakfast Option: ${breakfast} \n Lunch Option: $
 Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from Stripe Order*`;
 
   var mail = {
-    to: "mofamillennial@gmail.com", //Change to email address that you want to receive messages on
+    to: "veganeasellc@gmail.com", //Change to email address that you want to receive messages on
     subject: `Veganease | Meal Plan Order - ${weekday} `,
     text: content
   };
