@@ -46,11 +46,6 @@ transporter.verify((error, success) => {
   }
 });
 
-app.listen(port, error => {
-  if (error) throw error;
-  console.log("Server running on port " + port);
-});
-
 app.post("/send", (req, res, next) => {
   var weekday = req.body.weekdayOption;
   var breakfast = req.body.breakfastOption;
@@ -99,4 +94,9 @@ app.post("/payment", (req, res) => {
       res.status(200).send({ success: stripeRes });
     }
   });
+});
+
+app.listen(port, error => {
+  if (error) throw error;
+  console.log("Server running on port " + port);
 });
