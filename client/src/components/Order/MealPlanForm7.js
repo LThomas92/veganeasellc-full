@@ -95,7 +95,6 @@ class MealPlanForm7 extends React.Component {
     });
   };
 
-
   onSubmit = e => {
     e.preventDefault();
     const weekdayOption = this.state.weekdayOption;
@@ -108,7 +107,7 @@ class MealPlanForm7 extends React.Component {
 
     axios({
       method: "POST",
-      url: "http://localhost:5000/send",
+      url: "http://localhost:8000/send",
       data: {
         weekdayOption: weekdayOption,
         breakfastOption: breakfastOption,
@@ -174,8 +173,8 @@ class MealPlanForm7 extends React.Component {
           </option>
         );
       }, this);
-    
-      let deliveryList =
+
+    let deliveryList =
       delivery.length > 0 &&
       delivery.map((item, i) => {
         return (
