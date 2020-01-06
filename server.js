@@ -52,7 +52,7 @@ app.listen(port, error => {
   console.log("Server running on port " + port);
 });
 
-app.post("/send", (req, res, next) => {
+app.post("https://www.veganeasellc.com/send", (req, res, next) => {
   var weekday = req.body.weekdayOption;
   var breakfast = req.body.breakfastOption;
   var lunch = req.body.lunchOption;
