@@ -26,14 +26,16 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+var nodemailer = require("nodemailer");
 const creds = require("./config");
-var api_key = creds.api_key;
-var domain = creds.domain;
-var mailgun = require("mailgun-js")({ apiKey: api_key, domain: domain });
 
-app.listen(port, error => {
-  if (error) throw error;
-  console.log("Server running on port " + port);
+// create reusable transport method (opens pool of SMTP connections)
+var smtpTransport = nodemailer.createTransport("SMTP", {
+  service: "Gmail",
+  auth: {
+    user: process.env.USER,
+    pass: process.env.PASS
+  }
 });
 
 app.post("/send", (req, res, next) => {
@@ -46,24 +48,30 @@ app.post("/send", (req, res, next) => {
   var delivery = req.body.deliveryOption;
 
   var content = `Hi Vanessa,\n
-  ${user} has submitted a new meal plan order. Please see details of the order below:
-    
-  Weekday or Date: ${weekday} \n Breakfast Option: ${breakfast} \n Lunch Option: ${lunch} \n Snack Option: ${snack} \n Extra Details: ${text} 
-  Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from Stripe Order*`;
+${user} has submitted a new meal plan order. Please see details of the order below:
+  
+Weekday or Date: ${weekday} \n Breakfast Option: ${breakfast} \n Lunch Option: ${lunch} \n Snack Option: ${snack} \n Extra Details: ${text} 
+Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from Stripe Order*`;
 
-  var data = {
-    from: "Veganease LLC Orders <veganeasellc@gmail.com>",
-    to: "veganeasellc@gmail.com",
+  var mail = {
+    to: "veganeasellc@gmail.com", //Change to email address that you want to receive messages on
     subject: `Veganease | Meal Plan Order - ${weekday} `,
     text: content
   };
 
-  mailgun.messages().send(data, function(error, body) {
-    console.log(body);
+  // send mail with defined transport object
+  smtpTransport.sendMail(mail, function(error, response) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Message sent: " + response.message);
+    }
+
+    // if you don't want to use this transport object anymore, uncomment following line
+    //smtpTransport.close(); // shut down the connection pool, no more messages
   });
 });
 
-//STRIPE PAYMENTS
 app.post("/payment", (req, res) => {
   const body = {
     source: req.body.token.id,
@@ -78,4 +86,9 @@ app.post("/payment", (req, res) => {
       res.status(200).send({ success: stripeRes });
     }
   });
+});
+
+app.listen(port, error => {
+  if (error) throw error;
+  console.log("Server running on port " + port);
 });
