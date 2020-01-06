@@ -1,4 +1,3 @@
-require("dotenv");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -29,13 +28,27 @@ if (process.env.NODE_ENV === "production") {
 var nodemailer = require("nodemailer");
 const creds = require("./config");
 
-// create reusable transport method (opens pool of SMTP connections)
-var smtpTransport = nodemailer.createTransport("SMTP", {
-  service: "Gmail",
+var transport = {
+  host: "smtp.gmail.com",
   auth: {
-    user: process.env.USER,
-    pass: process.env.PASS
+    user: creds.USER,
+    pass: creds.PASS
   }
+};
+
+var transporter = nodemailer.createTransport(transport);
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take messages");
+  }
+});
+
+app.listen(port, error => {
+  if (error) throw error;
+  console.log("Server running on port " + port);
 });
 
 app.post("/send", (req, res, next) => {
@@ -59,16 +72,16 @@ Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from
     text: content
   };
 
-  // send mail with defined transport object
-  smtpTransport.sendMail(mail, function(error, response) {
-    if (error) {
-      console.log(error);
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      res.json({
+        msg: "fail"
+      });
     } else {
-      console.log("Message sent: " + response.message);
+      res.json({
+        msg: "success"
+      });
     }
-
-    // if you don't want to use this transport object anymore, uncomment following line
-    //smtpTransport.close(); // shut down the connection pool, no more messages
   });
 });
 
@@ -86,9 +99,4 @@ app.post("/payment", (req, res) => {
       res.status(200).send({ success: stripeRes });
     }
   });
-});
-
-app.listen(port, error => {
-  if (error) throw error;
-  console.log("Server running on port " + port);
 });
