@@ -1,3 +1,4 @@
+require("dotenv/config");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -25,26 +26,9 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-var nodemailer = require("nodemailer");
-const creds = require("./config");
+const sgMail = require("@sendgrid/mail");
 
-var transport = {
-  host: "smtp.gmail.com",
-  auth: {
-    user: creds.USER,
-    pass: creds.PASS
-  }
-};
-
-var transporter = nodemailer.createTransport(transport);
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Server is ready to take messages");
-  }
-});
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.post("/send", (req, res, next) => {
   var weekday = req.body.weekdayOption;
@@ -61,23 +45,14 @@ ${user} has submitted a new meal plan order. Please see details of the order bel
 Weekday or Date: ${weekday} \n Breakfast Option: ${breakfast} \n Lunch Option: ${lunch} \n Snack Option: ${snack} \n Extra Details: ${text} 
 Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from Stripe Order*`;
 
-  var mail = {
-    to: "veganeasellc@gmail.com", //Change to email address that you want to receive messages on
-    subject: `Veganease | Meal Plan Order - ${weekday} `,
+  var msg = {
+    to: "lawrencegthomas@gmail.com", //Change to email address that you want to receive messages on
+    from: "lawrencegthomas@gmail.com",
+    subject: `Veganease | Meal Plan Order - ${weekday}`,
     text: content
   };
 
-  transporter.sendMail(mail, (err, data) => {
-    if (err) {
-      res.json({
-        msg: "fail"
-      });
-    } else {
-      res.json({
-        msg: "success"
-      });
-    }
-  });
+  sgMail.send(msg);
 });
 
 app.post("/payment", (req, res) => {
