@@ -26,27 +26,10 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-var nodemailer = require("nodemailer");
 const creds = require("./config");
-
-var transport = {
-  host: "smtp.gmail.com",
-  port: 465,
-  auth: {
-    user: creds.USER,
-    pass: creds.PASS
-  }
-};
-
-var transporter = nodemailer.createTransport(transport);
-
-transporter.verify((error, success) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Server is ready to take messages");
-  }
-});
+var api_key = creds.api_key;
+var domain = creds.domain;
+var mailgun = require("mailgun-js")({ apiKey: api_key, domain: domain });
 
 app.listen(port, error => {
   if (error) throw error;
@@ -63,31 +46,24 @@ app.post("/send", (req, res, next) => {
   var delivery = req.body.deliveryOption;
 
   var content = `Hi Vanessa,\n
-${user} has submitted a new meal plan order. Please see details of the order below:
-  
-Weekday or Date: ${weekday} \n Breakfast Option: ${breakfast} \n Lunch Option: ${lunch} \n Snack Option: ${snack} \n Extra Details: ${text} 
+  ${user} has submitted a new meal plan order. Please see details of the order below:
+    
+  Weekday or Date: ${weekday} \n Breakfast Option: ${breakfast} \n Lunch Option: ${lunch} \n Snack Option: ${snack} \n Extra Details: ${text} 
+  Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from Stripe Order*`;
 
-Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from Stripe Order*`;
-
-  var mail = {
-    to: "veganeasellc@gmail.com", //Change to email address that you want to receive messages on
+  var data = {
+    from: "Veganease LLC Orders <veganeasellc@gmail.com>",
+    to: "veganeasellc@gmail.com",
     subject: `Veganease | Meal Plan Order - ${weekday} `,
     text: content
   };
 
-  transporter.sendMail(mail, (err, data) => {
-    if (err) {
-      res.json({
-        msg: "fail"
-      });
-    } else {
-      res.json({
-        msg: "success"
-      });
-    }
+  mailgun.messages().send(data, function(error, body) {
+    console.log(body);
   });
 });
 
+//STRIPE PAYMENTS
 app.post("/payment", (req, res) => {
   const body = {
     source: req.body.token.id,
