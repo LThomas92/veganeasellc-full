@@ -18,13 +18,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
-const proxy = require("http-proxy-middleware");
-
-module.exports = function(app) {
-  // add other server routes to path array
-  app.use(proxy(["/"], { target: "http://localhost:8000" }));
-};
-
 if (
   process.env.NODE_ENV === "production" ||
   process.env.NODE_ENV === "staging"
@@ -40,7 +33,7 @@ const sgMail = require("@sendgrid/mail");
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-app.post("/send", (req, res, next) => {
+app.post("/api/send", (req, res, next) => {
   var weekday = req.body.weekdayOption;
   var breakfast = req.body.breakfastOption;
   var lunch = req.body.lunchOption;
@@ -65,7 +58,7 @@ Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from
   sgMail.send(msg);
 });
 
-app.post("/payment", (req, res) => {
+app.post("/api/payment", (req, res) => {
   const body = {
     source: req.body.token.id,
     amount: req.body.amount,
