@@ -108,7 +108,7 @@ class MealPlanForm5 extends React.Component {
 
     axios({
       method: "POST",
-      url: "/send",
+      url: "https://veganease-llc.herokuapp.com/send",
       data: {
         weekdayOption: weekdayOption,
         breakfastOption: breakfastOption,
