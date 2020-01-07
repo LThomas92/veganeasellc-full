@@ -108,7 +108,7 @@ class MealPlanForm5 extends React.Component {
 
     axios({
       method: "POST",
-      url: "/v3/mail/send",
+      url: "https://www.veganeasellc.com",
       data: {
         weekdayOption: weekdayOption,
         breakfastOption: breakfastOption,
