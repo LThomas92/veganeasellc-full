@@ -49,8 +49,8 @@ Weekday or Date: ${weekday} \n Breakfast Option: ${breakfast} \n Lunch Option: $
 Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from Stripe Order*`;
 
   var msg = {
-    to: "lawrencegthomas@gmail.com", //Change to email address that you want to receive messages on
-    from: "lawrencegthomas@gmail.com",
+    to: "veganeasellc@gmail.com", //Change to email address that you want to receive messages on
+    from: "veganeasemail@gmail.com",
     subject: `Veganease | Meal Plan Order - ${weekday}`,
     text: content
   };
