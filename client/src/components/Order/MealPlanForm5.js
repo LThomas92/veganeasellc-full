@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import AxiosAPI from "../AxiosAPI";
 import { selectCurrentUser } from "../User/User-Selector";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -106,7 +106,7 @@ class MealPlanForm5 extends React.Component {
     const text = this.state.text;
     const currentUser = this.props.currentUser.displayName;
 
-    axios({
+    AxiosAPI({
       method: "POST",
       url: "http://localhost:8000/send",
       data: {
