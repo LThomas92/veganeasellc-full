@@ -3,7 +3,7 @@ import axios from "axios";
 import { selectCurrentUser } from "../User/User-Selector";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
+import swal from "sweetalert";
 
 class MealPlanForm5 extends React.Component {
   constructor(props) {
@@ -19,8 +19,7 @@ class MealPlanForm5 extends React.Component {
       breakfastOption: "",
       lunchOption: "",
       snackOption: "",
-      deliveryOption: "",
-      showPopup: false
+      deliveryOption: ""
     };
   }
 
@@ -121,9 +120,13 @@ class MealPlanForm5 extends React.Component {
       }
     }).then(response => {
       if (response.data.msg === "success") {
-        console.log("SUCCESS");
+        return swal("SUCCESS");
       } else if (response.data.msg === "fail") {
-        console.log("ERROR");
+        return (
+          <div>
+            <p>ERROR</p>
+          </div>
+        );
       }
     });
   };
