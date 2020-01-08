@@ -4,6 +4,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const compression = require("compression");
+const alert = require("alert-node");
 
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
@@ -56,6 +57,7 @@ Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from
   };
 
   sgMail.send(msg);
+  alert("Your Order Has Been Submitted");
 });
 
 app.post("/api/payment", (req, res) => {

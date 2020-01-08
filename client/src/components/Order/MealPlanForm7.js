@@ -3,7 +3,6 @@ import axios from "axios";
 import { selectCurrentUser } from "../User/User-Selector";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import SweetAlert from "react-bootstrap-sweetalert";
 
 class MealPlanForm7 extends React.Component {
   state = {
@@ -119,13 +118,9 @@ class MealPlanForm7 extends React.Component {
       }
     }).then(response => {
       if (response.data.msg === "success") {
-        return (
-          <SweetAlert title="Here's a message!" onConfirm={this.hideAlert} />
-        );
+        console.log("SUCCESS");
       } else if (response.data.msg === "fail") {
-        return (
-          <SweetAlert title="Here's a message!" onConfirm={this.hideAlert} />
-        );
+        console.log("ERROR");
       }
     });
   };
