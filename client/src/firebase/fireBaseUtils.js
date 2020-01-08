@@ -1,7 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
-import swal from "sweetalert";
 
 const config = {
   apiKey: "AIzaSyBqU-iqUJ9TwoHlQu6snJp6THu2XTnX7bE",
@@ -34,7 +33,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData
       });
     } catch (error) {
-      swal("error creating user", error.message);
+      console.log(error.message);
     }
   }
   return userRef;

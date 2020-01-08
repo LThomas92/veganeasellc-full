@@ -1,13 +1,15 @@
 import React from "react";
 import StripeCheckout from "react-stripe-checkout";
 import logo from "../logo.svg";
-import swal from "sweetalert";
+import SweetAlert from "react-bootstrap-sweetalert";
 
 const StripeCheckoutBtn = ({ price }) => {
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_Mh0rj0QJ4h9k6GZZLRifKtab00jGP8j6FK";
   const onToken = token => {
-    swal("Your Payment is Successful");
+    return (
+      <SweetAlert title="Here's a message!" onConfirm={this.hideAlert} />
+    )
   };
 
   return (
