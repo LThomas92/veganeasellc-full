@@ -120,13 +120,9 @@ class MealPlanForm5 extends React.Component {
       }
     }).then(response => {
       if (response.data.msg === "success") {
-        return swal("SUCCESS");
+        swal("SUCCESS");
       } else if (response.data.msg === "fail") {
-        return (
-          <div>
-            <p>ERROR</p>
-          </div>
-        );
+        swal("ERROR");
       }
     });
   };
