@@ -3,7 +3,7 @@ import axios from "axios";
 import { selectCurrentUser } from "../User/User-Selector";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-import swal from "sweetalert";
+import Swal from "sweetalert2";
 
 class MealPlanForm5 extends React.Component {
   constructor(props) {
@@ -96,6 +96,16 @@ class MealPlanForm5 extends React.Component {
     });
   };
 
+  
+  noti() {
+    Swal.fire({
+      title: "SUCCESS!",
+      text: "Your order has been submitted!",
+      icon: "success",
+      confirmButtonText: "OK"
+    });
+  }
+
   onSubmit = e => {
     e.preventDefault();
     const weekdayOption = this.state.weekdayOption;
@@ -119,11 +129,7 @@ class MealPlanForm5 extends React.Component {
         currentUser: currentUser
       }
     }).then(response => {
-      if (response.data.msg === "success") {
-        swal("SUCCESS");
-      } else if (response.data.msg === "fail") {
-        swal("ERROR");
-      }
+      console.log(response);
     });
   };
 
@@ -209,7 +215,7 @@ class MealPlanForm5 extends React.Component {
             <h3>Choose Delivery Method</h3>
             <select onChange={this.onChangeDelivery}>{deliveryList}</select>
           </div>
-          <button type="submit" className="btn">
+          <button onClick={this.noti} type="submit" className="btn">
             Submit
           </button>
         </form>
