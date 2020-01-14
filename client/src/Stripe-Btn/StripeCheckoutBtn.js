@@ -4,7 +4,7 @@ import logo from "../logo.svg";
 
 const StripeCheckoutBtn = ({ price }) => {
   const priceForStripe = price * 100;
-  const publishableKey = "pk_test_Mh0rj0QJ4h9k6GZZLRifKtab00jGP8j6FK";
+  const publishableKey = "pk_live_Y0USI33MQygusXnXGtVOHS6T0060d1mI6B";
   const onToken = token => {
     console.log("ERROR");
   };
