@@ -6,7 +6,7 @@ import StripeCheckoutBtn from "../../Stripe-Btn/StripeCheckoutBtn";
 
 import { selectCartItems, selectCartTotal } from "../Cart/Cart-Selector";
 
-const CheckoutPage = ({ cartItems, total }) => {
+const CheckoutPage = ({ cartItems, cartItem, total }) => {
   return (
     <React.Fragment>
       <div className="checkout-page">
@@ -17,7 +17,7 @@ const CheckoutPage = ({ cartItems, total }) => {
       </div>
       <div className="total-price">Payment Due: &nbsp;${total}</div>
       <div>
-        <StripeCheckoutBtn price={total} />
+        <StripeCheckoutBtn cartItem={cartItem} price={total} />
       </div>
     </React.Fragment>
   );

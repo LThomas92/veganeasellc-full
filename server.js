@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const path = require("path");
 const compression = require("compression");
 const alert = require("alert-node");
+const uuid = require("uuid/v4");
 
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
@@ -60,20 +61,49 @@ Delivery Method: ${delivery} \n *If Method is Delivery Use Shipping Address from
   alert("Your Order Has Been Submitted");
 });
 
-app.post("/api/payment", (req, res) => {
-  const body = {
-    source: req.body.token.id,
-    amount: req.body.amount,
-    currency: "usd"
-  };
+app.post("/api/payment", async (req, res) => {
+  console.log("Request:", req.body);
 
-  stripe.charges.create(body, (stripeErr, stripeRes) => {
-    if (stripeErr) {
-      res.status(500).send({ error: stripeErr });
-    } else {
-      res.status(200).send({ success: stripeRes });
-    }
-  });
+  let error;
+  let status;
+  try {
+    const { price, token } = req.body;
+
+    const customer = await stripe.customers.create({
+      email: token.email,
+      source: token.id
+    });
+
+    const idempotency_key = uuid();
+    const charge = await stripe.charges.create(
+      {
+        amount: price * 100,
+        currency: "usd",
+        customer: customer.id,
+        receipt_email: token.email,
+        shipping: {
+          name: token.card.name,
+          address: {
+            line1: token.card.address_line1,
+            line2: token.card.address_line2,
+            city: token.card.address_city,
+            country: token.card.address_country,
+            postal_code: token.card.address_zip
+          }
+        }
+      },
+      {
+        idempotency_key
+      }
+    );
+    console.log("Charge:", { charge });
+    status = "success";
+  } catch (error) {
+    console.error("Error:", error);
+    status = "failure";
+  }
+
+  res.json({ error, status });
 });
 
 app.listen(port, error => {
