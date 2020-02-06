@@ -124,27 +124,27 @@ const items = [
     category: "Dinner",
     itemName: "PORTOBELLO FAJITAS",
     itemDesc:
-      "Grilled portobello mushrooms strips w/ caramelized peppers & onions served with seasoned quinoa & sweet potato mash"
+      "grilled portobello mushrooms strips w/ caramelized peppers & onions served with seasoned quinoa & sweet potato mash"
   },
   {
     id: 20,
     category: "Dinner",
     itemName: "THE MILLIE",
     itemDesc:
-      "Our customer favorite 'Veganease Mac No Cheese' served with sauteed Kale & Sweet Potato mash"
+      "our customer favorite 'Veganease Mac No Cheese' served with sauteed kale & sweet potato mash"
   },
   {
     id: 21,
     category: "Dinner",
     itemName: "SOUTHERN V",
     itemDesc:
-      "Black beans, Garlic Mashed potatoes, Smothered Mushrooms & Sauteed Spinach"
+      "black beans, garlic mashed potatoes, smothered mushrooms & sauteed spinach"
   },
   {
     id: 22,
     category: "Lunch",
     itemName: "KALE & PORTOBELLO WRAP",
-    itemDesc: "Served with wild rice & seasoned fried plantain "
+    itemDesc: "served with wild rice & seasoned fried plantain "
   }
 ];
 
