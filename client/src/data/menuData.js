@@ -118,6 +118,33 @@ const items = [
     id: 18,
     category: "Snacks",
     itemName: "CINNAMON SWEET POTATO CHIPS"
+  },
+  {
+    id: 19,
+    category: "Dinner",
+    itemName: "PORTOBELLO FAJITAS",
+    itemDesc:
+      "Grilled portobello mushrooms strips w/ caramelized peppers & onions served with seasoned quinoa & sweet potato mash"
+  },
+  {
+    id: 20,
+    category: "Dinner",
+    itemName: "THE MILLIE",
+    itemDesc:
+      "Our customer favorite 'Veganease Mac No Cheese' served with sauteed Kale & Sweet Potato mash"
+  },
+  {
+    id: 21,
+    category: "Dinner",
+    itemName: "SOUTHERN V",
+    itemDesc:
+      "Black beans, Garlic Mashed potatoes, Smothered Mushrooms & Sauteed Spinach"
+  },
+  {
+    id: 22,
+    category: "Lunch",
+    itemName: "KALE & PORTOBELLO WRAP",
+    itemDesc: "Served with wild rice & seasoned fried plantain "
   }
 ];
 

@@ -38,7 +38,11 @@ class MealPlanForm30 extends React.Component {
         { name: "SPAGHETTI 'NO' MEATBALLS" },
         { name: "ROASTED GARLIC ASPARAGUS" },
         { name: "LENTIL SOUP" },
-        { name: "PASTA SALAD" }
+        { name: "PASTA SALAD" },
+        { name: "KALE & PORTOBELLO WRAP" },
+        { name: "SOUTHERN V" },
+        { name: "THE MILLIE" },
+        { name: "PORTOBELLO FAJITAS" }
       ],
       snacks: [
         { name: "AGAVE CHILI POPCORN" },
