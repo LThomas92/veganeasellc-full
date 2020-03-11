@@ -48,7 +48,7 @@ const mealPlanData = [
         title: "30-Day Meal Plan",
         image: require("../img/30-DayMealPlan.jpg"),
         desc:
-          "BEST OFFER!! 30 days of flavorful on-the-go meals, totaling 15 meals and 30 snacks. (About $4 per meal!)",
+          "BEST OFFER!! 30 days of flavorful on-the-go meals, totaling 60 meals and 30 snacks. (About $4 per meal!)",
         price: 430.0
       }
     ]

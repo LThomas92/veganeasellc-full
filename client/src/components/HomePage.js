@@ -86,7 +86,7 @@ const HomePage = () => {
               </LazyLoad>
               <h3 className="meal-options-card__title">30-Day Plan</h3>
               <p className="meal-options-card__text">
-                <b>BEST OFFER!</b> Includes 15 meals, 30 snacks.
+                <b>BEST OFFER!</b> Includes 60 meals, 30 snacks.
               </p>
             </div>
           </div>
