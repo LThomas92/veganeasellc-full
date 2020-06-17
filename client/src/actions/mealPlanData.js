@@ -16,7 +16,7 @@ const mealPlanData = [
             "FLAXMEAL PORRIDGE",
             "CORNMEAL PORRIDGE",
             "POST WORKOUT QUINOA BOWL",
-            "BANANA OATMEAL CUPS (2)"
+            "BANANA OATMEAL CUPS (2)",
           ],
           lunch: [
             "PROTEIN POWERHOUSE",
@@ -27,13 +27,14 @@ const mealPlanData = [
             "SPAGHETTI 'NO' MEATBALLS",
             "ROASTED GARLIC ASPARAGUS",
             "LENTIL SOUP",
-            "PASTA SALAD"
+            "PASTA SALAD",
+            "LOADED QUINOA BOWL",
           ],
           snacks: [
-            "AGAVE CHILI POPCORN, CINNAMON SWEET POTATO CHIPS, BERRIES, PB&C"
-          ]
+            "AGAVE CHILI POPCORN, CINNAMON SWEET POTATO CHIPS, BERRIES, PB&C, KALE CHIPS",
+          ],
         },
-        price: 89.0
+        price: 89.0,
       },
       {
         id: 2,
@@ -41,7 +42,7 @@ const mealPlanData = [
         image: require("../img/7-DayMealPlan.jpg"),
         desc:
           "Freshly prepared meals to enjoy for the entire week! No 'cheat weekends' necessary. Consists of 14 deliciously nutritious meals and 7 snacks. (About $5 per meal) ",
-        price: 125.0
+        price: 125.0,
       },
       {
         id: 3,
@@ -49,10 +50,10 @@ const mealPlanData = [
         image: require("../img/30-DayMealPlan.jpg"),
         desc:
           "BEST OFFER!! 30 days of flavorful on-the-go meals, totaling 60 meals and 30 snacks. (About $4 per meal!)",
-        price: 430.0
-      }
-    ]
-  }
+        price: 430.0,
+      },
+    ],
+  },
 ];
 
 export default mealPlanData;

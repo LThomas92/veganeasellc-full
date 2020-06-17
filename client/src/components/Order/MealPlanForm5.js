@@ -19,7 +19,7 @@ class MealPlanForm5 extends React.Component {
       breakfastOption: "",
       lunchOption: "",
       snackOption: "",
-      deliveryOption: ""
+      deliveryOption: "",
     };
   }
 
@@ -30,7 +30,7 @@ class MealPlanForm5 extends React.Component {
         { name: "FLAXMEAL PORRIDGE" },
         { name: "CORNMEAL PORRIDGE" },
         { name: "POST WORKOUT QUINOA BOWL" },
-        { name: "BANANA OATMEAL CUPS (2)" }
+        { name: "BANANA OATMEAL CUPS (2)" },
       ],
       lunch: [
         { name: "PROTEIN POWERHOUSE" },
@@ -45,58 +45,60 @@ class MealPlanForm5 extends React.Component {
         { name: "KALE & PORTOBELLO WRAP" },
         { name: "SOUTHERN V" },
         { name: "THE MILLIE" },
-        { name: "PORTOBELLO FAJITAS" }
+        { name: "PORTOBELLO FAJITAS" },
+        { name: "LOADED QUINOA BOWL" },
       ],
       snacks: [
         { name: "AGAVE CHILI POPCORN" },
         { name: "CINNAMON SWEET POTATO CHIPS" },
         { name: "BERRIES" },
-        { name: "PB & C" }
+        { name: "PB & C" },
+        { name: "KALE CHIPS" },
       ],
       days: [
         { weekDay: "Monday" },
         { weekDay: "Tuesday" },
         { weekDay: "Wedensday" },
         { weekDay: "Thursday" },
-        { weekDay: "Friday" }
+        { weekDay: "Friday" },
       ],
-      delivery: [{ deliveryOption: "Delivery" }, { deliveryOption: "Pick Up" }]
+      delivery: [{ deliveryOption: "Delivery" }, { deliveryOption: "Pick Up" }],
     });
   }
 
-  onChangeWeekday = e => {
+  onChangeWeekday = (e) => {
     this.setState({
-      weekdayOption: e.target.value
+      weekdayOption: e.target.value,
     });
   };
 
-  onChangeBreakfast = e => {
+  onChangeBreakfast = (e) => {
     this.setState({
-      breakfastOption: e.target.value
+      breakfastOption: e.target.value,
     });
   };
 
-  onChangeLunch = e => {
+  onChangeLunch = (e) => {
     this.setState({
-      lunchOption: e.target.value
+      lunchOption: e.target.value,
     });
   };
 
-  onChangeSnack = e => {
+  onChangeSnack = (e) => {
     this.setState({
-      snackOption: e.target.value
+      snackOption: e.target.value,
     });
   };
 
-  onChangeText = e => {
+  onChangeText = (e) => {
     this.setState({
-      text: e.target.value
+      text: e.target.value,
     });
   };
 
-  onChangeDelivery = e => {
+  onChangeDelivery = (e) => {
     this.setState({
-      deliveryOption: e.target.value
+      deliveryOption: e.target.value,
     });
   };
 
@@ -105,11 +107,11 @@ class MealPlanForm5 extends React.Component {
       title: "SUCCESS!",
       text: "Your order has been submitted!",
       icon: "success",
-      confirmButtonText: "OK"
+      confirmButtonText: "OK",
     });
   }
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     const weekdayOption = this.state.weekdayOption;
     const breakfastOption = this.state.breakfastOption;
@@ -129,9 +131,9 @@ class MealPlanForm5 extends React.Component {
         snackOption: snackOption,
         deliveryOption: deliveryOption,
         text: text,
-        currentUser: currentUser
-      }
-    }).then(response => {
+        currentUser: currentUser,
+      },
+    }).then((response) => {
       console.log(response);
     });
   };
@@ -238,7 +240,7 @@ class MealPlanForm5 extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
 export default connect(mapStateToProps)(MealPlanForm5);
