@@ -34,7 +34,7 @@ const mealPlanData = [
             "AGAVE CHILI POPCORN, CINNAMON SWEET POTATO CHIPS, BERRIES, PB&C, KALE CHIPS",
           ],
         },
-        price: 89.0,
+        price: 100.0,
       },
       {
         id: 2,
@@ -42,7 +42,7 @@ const mealPlanData = [
         image: require("../img/7-DayMealPlan.jpg"),
         desc:
           "Freshly prepared meals to enjoy for the entire week! No 'cheat weekends' necessary. Consists of 14 deliciously nutritious meals and 7 snacks. (About $5 per meal) ",
-        price: 125.0,
+        price: 150.0,
       },
       {
         id: 3,
